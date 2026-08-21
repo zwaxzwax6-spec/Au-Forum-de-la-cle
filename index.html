@@ -244,6 +244,58 @@ footer a:hover{color:#fff;text-decoration:underline}
   .rv{opacity:1;transform:none}
 }
 
+/* ---------- modale mentions légales ---------- */
+.legal-link{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.legal-link:hover{color:#fff}
+.f-bottom .legal-link{color:rgba(255,255,255,.62)}
+.f-bottom .legal-link:hover{color:#fff}
+.lg-overlay{
+  position:fixed;inset:0;z-index:200;display:none;
+  background:rgba(24,22,50,.55);backdrop-filter:blur(4px);
+  padding:24px;overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.lg-overlay.open{display:flex;align-items:flex-start;justify-content:center}
+.lg-modal{
+  background:var(--card);border-radius:26px;
+  width:100%;max-width:760px;margin:auto;
+  box-shadow:0 30px 80px rgba(20,18,45,.35);
+  position:relative;overflow:hidden;
+  animation:lgIn .2s ease-out;
+}
+@keyframes lgIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.lg-head{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:26px 32px;border-bottom:1px solid var(--line);
+  position:sticky;top:0;background:var(--card);z-index:2;
+}
+.lg-head h2{font-size:1.5rem;letter-spacing:-.02em}
+.lg-close{
+  flex:none;width:40px;height:40px;border-radius:50%;border:0;cursor:pointer;
+  background:rgba(42,39,109,.07);color:var(--navy);
+  display:flex;align-items:center;justify-content:center;transition:background .15s ease;
+}
+.lg-close:hover{background:rgba(42,39,109,.14)}
+.lg-body{padding:8px 32px 34px;max-height:calc(100vh - 160px);overflow-y:auto}
+.lg-body h3{font-size:.82rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin:30px 0 12px}
+.lg-body h3:first-child{margin-top:22px}
+.lg-body p{font-size:.95rem;color:var(--muted);line-height:1.62;margin-bottom:10px}
+.lg-body p strong{color:var(--ink);font-weight:600}
+.lg-body a{color:var(--accent);font-weight:600;text-decoration:none}
+.lg-body a:hover{text-decoration:underline}
+.lg-dl{display:grid;grid-template-columns:auto 1fr;gap:7px 18px;font-size:.95rem;margin-bottom:8px}
+.lg-dl dt{color:var(--muted)}
+.lg-dl dd{color:var(--ink);font-weight:600}
+@media (max-width:640px){
+  .lg-overlay{padding:12px}
+  .lg-modal{border-radius:20px}
+  .lg-head{padding:20px 22px}
+  .lg-head h2{font-size:1.25rem}
+  .lg-body{padding:6px 22px 28px;max-height:calc(100vh - 130px)}
+  .lg-dl{grid-template-columns:1fr;gap:2px 0}
+  .lg-dl dd{margin-bottom:8px}
+}
+
 /* ---------- responsive ---------- */
 @media (max-width:1100px){
   .grid-4{grid-template-columns:repeat(2,1fr)}
@@ -604,18 +656,88 @@ footer a:hover{color:#fff;text-decoration:underline}
       <div>
         <h4>Contact</h4>
         <div class="f-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+33491643261">04 91 64 32 61</a></div>
-        <div class="f-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><a href="mailto:auforumdelacle@gmail.com">auforumdelacle@gmail.com</a></div>
+        <div class="f-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><a href="mailto:forumdelacle@gmail.com">forumdelacle@gmail.com</a></div>
         <div class="f-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>74 avenue des Chartreux<br>13004 Marseille</span></div>
       </div>
       <div>
         <h4>Horaires</h4>
         <div class="f-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>24h/24, 7j/7, jours fériés compris</span></div>
         <div class="f-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Marseille 13001 à 13016<br>Aubagne, Allauch, Plan-de-Cuques</span></div>
+        <div class="f-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg><button type="button" class="legal-link" data-legal-open>Mentions légales</button></div>
       </div>
     </div>
-    <div class="f-bottom">© Au Forum de la Clé · Serrurier à Marseille</div>
+    <div class="f-bottom">© Au Forum de la Clé · Serrurier à Marseille · <button type="button" class="legal-link" data-legal-open>Mentions légales</button></div>
   </div>
 </footer>
+
+<!-- ================= MENTIONS LÉGALES ================= -->
+<div class="lg-overlay" id="lgOverlay" role="dialog" aria-modal="true" aria-labelledby="lgTitle" hidden>
+  <div class="lg-modal">
+    <div class="lg-head">
+      <h2 id="lgTitle">Mentions légales</h2>
+      <button type="button" class="lg-close" id="lgClose" aria-label="Fermer les mentions légales">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="lg-body">
+
+      <h3>Éditeur du site</h3>
+      <dl class="lg-dl">
+        <dt>Dénomination sociale</dt><dd>AU FORUM DE LA CLE</dd>
+        <dt>Enseigne</dt><dd>Au Forum de la Clé</dd>
+        <dt>Forme juridique</dt><dd>Société par actions simplifiée à associé unique (SASU)</dd>
+        <dt>Capital social</dt><dd>1 000,00 €</dd>
+        <dt>Siège social</dt><dd>74 avenue des Chartreux, 13004 Marseille, France</dd>
+        <dt>RCS</dt><dd>Marseille 902 380 021</dd>
+        <dt>N° de gestion</dt><dd>2021B04855</dd>
+        <dt>SIREN</dt><dd>902 380 021</dd>
+        <dt>Activité</dt><dd>Tous travaux de serrurerie</dd>
+        <dt>Téléphone</dt><dd><a href="tel:+33491643261">04 91 64 32 61</a></dd>
+        <dt>E-mail</dt><dd><a href="mailto:forumdelacle@gmail.com">forumdelacle@gmail.com</a></dd>
+      </dl>
+      <!-- TVA : si la société est assujettie, décommenter et vérifier auprès du SIE avant publication.
+           <dt>N° TVA intracommunautaire</dt><dd>FR55902380021</dd> -->
+
+      <h3>Directeur de la publication</h3>
+      <p>Monsieur Jamaaladeen Compaore, en qualité de président de la société AU FORUM DE LA CLE.</p>
+
+      <h3>Hébergeur du site</h3>
+      <p>Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis — <a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a></p>
+
+      <h3>Assurance responsabilité civile professionnelle</h3>
+      <p>Contrat n° AIBG00009002, souscrit auprès de SIMPLIS, 75001 Paris. Couverture : activités de serrurerie exercées par la société.</p>
+
+      <h3>Dépannage à domicile, devis et prix</h3>
+      <p>Conformément à l'arrêté du 24 janvier 2017 relatif à la publicité des prix des prestations de dépannage, de réparation et d'entretien dans le secteur du bâtiment, <strong>un devis gratuit et détaillé est établi et remis au client avant toute intervention</strong>. Aucun travail n'est engagé sans l'accord préalable du client sur le montant annoncé.</p>
+      <p>Le devis précise la nature de la prestation, le détail des pièces et de la main-d'œuvre, ainsi que les éventuels frais de déplacement. Le prix annoncé est le prix payé : aucune majoration n'est appliquée la nuit, le week-end ou les jours fériés.</p>
+
+      <h3>Droit de rétractation</h3>
+      <p>Pour tout contrat conclu au domicile du client, celui-ci dispose d'un <strong>délai de rétractation de quatorze (14) jours</strong> à compter de la conclusion du contrat, conformément à l'article L221-18 du Code de la consommation. Un formulaire de rétractation est joint au devis.</p>
+      <p>En cas d'intervention urgente expressément sollicitée par le client (ouverture de porte, mise en sécurité), celui-ci peut renoncer par écrit à ce délai afin que les travaux strictement nécessaires soient réalisés immédiatement, en application de l'article L221-28 du Code de la consommation. Cette renonciation est recueillie sur le devis, préalablement à l'intervention.</p>
+
+      <h3>Médiation de la consommation</h3>
+      <p>Conformément à l'article L612-1 du Code de la consommation, tout client consommateur a le droit de recourir gratuitement à un médiateur de la consommation en vue de la résolution amiable d'un litige, après avoir tenté de le résoudre directement auprès de l'entreprise par une réclamation écrite. Les coordonnées du médiateur compétent sont communiquées sur simple demande à <a href="mailto:forumdelacle@gmail.com">forumdelacle@gmail.com</a>.</p>
+      <!-- À COMPLÉTER après adhésion à un médiateur agréé : nom du médiateur, adresse postale et site internet. -->
+
+      <h3>Propriété intellectuelle</h3>
+      <p>L'ensemble des éléments composant ce site (textes, photographies, logo, éléments graphiques, code) est protégé par le droit de la propriété intellectuelle. Toute reproduction ou représentation, totale ou partielle, sans autorisation écrite préalable est interdite.</p>
+
+      <h3>Données personnelles</h3>
+      <p>Ce site ne comporte aucun formulaire : aucune donnée n'est collectée directement auprès des visiteurs. Les appels téléphoniques passés vers l'entreprise sont traités aux seules fins de répondre à la demande d'intervention et de gérer la relation client.</p>
+      <p>Conformément au Règlement (UE) 2016/679 (RGPD) et à la loi Informatique et Libertés, chacun dispose d'un droit d'accès, de rectification, d'effacement, d'opposition et de limitation du traitement des données le concernant. Ces droits s'exercent auprès de <a href="mailto:forumdelacle@gmail.com">forumdelacle@gmail.com</a>. Une réclamation peut être introduite auprès de la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>).</p>
+
+      <h3>Cookies et mesure publicitaire</h3>
+      <p>Ce site utilise Google Ads afin de mesurer l'efficacité de ses campagnes publicitaires. Cet outil est susceptible de déposer des cookies permettant d'attribuer une prise de contact à une annonce. Ces cookies sont déposés par Google LLC ; leur durée de conservation et leur fonctionnement sont décrits dans les <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">règles de Google relatives aux sites partenaires</a>. Le navigateur peut être paramétré à tout moment pour refuser ou supprimer les cookies.</p>
+
+      <h3>Responsabilité</h3>
+      <p>Les informations publiées sur ce site sont fournies à titre indicatif et peuvent être modifiées à tout moment. Les délais d'intervention annoncés sont des délais moyens constatés à Marseille et peuvent varier selon la circulation, l'heure et la nature de l'intervention.</p>
+
+      <h3>Droit applicable</h3>
+      <p>Les présentes mentions légales sont soumises au droit français. En cas de litige et à défaut de résolution amiable, les tribunaux compétents seront ceux du ressort du siège social de la société.</p>
+
+    </div>
+  </div>
+</div>
 
 <!-- ================= MOBILE BAR + FAB ================= -->
 <div class="mobile-bar">
@@ -653,6 +775,35 @@ footer a:hover{color:#fff;text-decoration:underline}
   }
 })();
 </script>
+<script>
+(function(){
+  var ov = document.getElementById('lgOverlay');
+  var body = ov.querySelector('.lg-body');
+  var closeBtn = document.getElementById('lgClose');
+  var last = null;
+  function open(e){
+    if (e) e.preventDefault();
+    last = document.activeElement;
+    ov.hidden = false;
+    ov.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    body.scrollTop = 0;
+    closeBtn.focus();
+  }
+  function close(){
+    ov.classList.remove('open');
+    ov.hidden = true;
+    document.body.style.overflow = '';
+    if (last && last.focus) last.focus();
+  }
+  document.querySelectorAll('[data-legal-open]').forEach(function(b){ b.addEventListener('click', open); });
+  closeBtn.addEventListener('click', close);
+  ov.addEventListener('click', function(e){ if (e.target === ov) close(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && ov.classList.contains('open')) close(); });
+  if (location.hash === '#mentions-legales') open();
+})();
+</script>
+
 <!-- Conversion : clic sur un CTA d'appel -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
